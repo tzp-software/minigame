@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: minigame
+Version: 0.0.1dev
+Summary: python game library
+Home-page: tzp
+Author: kyle roux
+Author-email: jstacoder@gmail.com
+License: gpl2
+Description: a game library written in python for users of mainly small devices that can install python but cannot install pygame.
+Keywords: game python pygame embedded ios android
+Platform: UNKNOWN

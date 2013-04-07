@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+minigame/__init__.py
+minigame.egg-info/PKG-INFO
+minigame.egg-info/SOURCES.txt
+minigame.egg-info/dependency_links.txt
+minigame.egg-info/entry_points.txt
+minigame.egg-info/top_level.txt
+minigame.egg-info/zip-safe
