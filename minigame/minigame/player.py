@@ -3,6 +3,7 @@
     
         player logic for minigame
 '''
+from dice import Roll
 
 class Player(object):
     _players = [][:]
@@ -37,10 +38,29 @@ class Player(object):
             raise ValueError
         
         
+class DicePlayer(Player):
+    ''' an extension of the Player class to play dice'''
+    def __init__(self, name=None):
+        super(DicePlayer,self).__init__(name)
+        self.hand = Roll(6)
         
-kyle = Player('kyle')
+    def print_roll(self):
+        self.hand.print_roll()
+    
+    def return_roll(self):
+        return self.hand.return_roll()
+    
+    def roll(self):
+        self.hand.roll()
+        
+kyle = DicePlayer('kyle')
 kyle.add_points(800)
 #tkyle.print_stats()
 jill = Player('jill')
 jill.add_points(100)
 Player.print_scores()
+kyle.print_roll()
+
+x = kyle.return_roll()
+print
+print x
