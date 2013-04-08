@@ -59,6 +59,13 @@ class Roll(object):
         for i in self.dice:
             print str(i) + string,
 
+    def return_roll(self):
+        '''public api access to Die.value'''
+        tmpRoll = [][:]
+        for i in self.dice:
+            tmpRoll.append(int(i.value))
+        return tuple(tmpRoll)
+
 def test():
     x = Die(6)
     x.roll()
@@ -67,5 +74,8 @@ def test():
     y.print_roll()
     print
     #print y.dice[3]
+    
+    print y.return_roll()[2]
+    
 if __name__ == '__main__':
     test()
