@@ -6,7 +6,11 @@
 import random
 
 class Die(object):
+    ''' A Die is a six sided die unless you give it a number.
+    a Die automaticlly rolls itself.'''
     def __init__(self, num=None):
+        '''you can give it an inital number for sides or not. self.value
+        will be a random int from 1 to 6(or th given number'''
         if num is None:
             self.num = 6
         else:
@@ -14,14 +18,17 @@ class Die(object):
         self.roll()
     
     def roll(self, num=None):
+        ''' give a number to roll a new N sided die'''
         if num is None:
             num = self.num
         self.value = random.randrange(1, num)
     
     def __str__(self):
+        '''returns self.value'''
         return str(self.value)
     
-    def __int__(self,):
+    def __int__(self):
+        '''returns self.value'''
         return self.value
 
 class Roll(object):
@@ -59,6 +66,6 @@ def test():
     y = Roll()
     y.print_roll()
     print
-    print y.dice[3]
+    #print y.dice[3]
 if __name__ == '__main__':
     test()
