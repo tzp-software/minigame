@@ -66,6 +66,38 @@ class Roll(object):
             tmpRoll.append(int(i.value))
         return tuple(tmpRoll)
 
+
+class DieCounter(object):
+    
+    
+    def __init__(self):
+        pass
+    
+    def reset_count(self):
+        self._faces = {'One' : 0, 'Two' : 0, 'Three' : 0, 'Four' : 0, 'Five' : 0, 'Six' : 0}.copy()
+        self._faceMap = [None, 'One', 'Two', 'Three', 'Four', 'Five' ,'Six'][:] 
+    
+    def count_roll(self, roll):
+        self.reset_count()
+        for die in roll:
+            face = self._faceMap[die]
+            self._faces[face] += 1
+        count = self._faces.copy()
+        return count
+    
+    def check_three_or_more(self, roll):
+        count = self.count_roll(roll)
+        save = [][:]
+        for i in count:
+            if count[i] >= 3:
+                print "{0} {1}'s".format(count[i],i)
+                save.append(i)
+        if len(save) > 0:
+            return self._faceMap.index(str(save[0]))
+        else:
+            return None
+            
+        
 def test():
     x = Die(6)
     x.roll()
@@ -76,6 +108,9 @@ def test():
     #print y.dice[3]
     
     print y.return_roll()[2]
-    
+    c = DieCounter()
+    print c.count_roll(y.return_roll())
+    print c.check_three_or_more(y.return_roll())
+    print c._faceMap
 if __name__ == '__main__':
     test()
