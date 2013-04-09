@@ -12,15 +12,16 @@ DEBUG = True
 if len(sys.argv) > 1:
     if sys.argv[1] == '--debug':
         DEBUG = True
-
+testCount = 0
 
 class DieTest(unittest.TestCase):
-    testCount = 0
+    
 
     def setUp(self):
-        DieTest.testCount += 1
+        global testCount
+        testCount += 1
         if (DEBUG):
-            print 'Running test #{0}'.format(DieTest.testCount)
+            print 'Running test #{0}'.format(testCount)
         self.die = Die()
 
     def testRollLessThanSeven(self):
@@ -30,12 +31,15 @@ class DieTest(unittest.TestCase):
         self.assertEquals(self.die.value > 0, True)
         
 class RollTest(unittest.TestCase):
-    testCount = 0
     
     def setUp(self):
-        RollTest.testCount += 1
-        print 'Running test #{0}'.format(RollTest.testCount)
+        global testCount 
+        testCount += 1
+        print 'Running test #{0}'.format(testCount)
         self.roll = Roll(6)
+    
+    def tearDown(self):
+        self.roll = None
         
     def testDieOne(self):
         self.assertEquals(self.roll.return_roll()[0] < 7, True)
