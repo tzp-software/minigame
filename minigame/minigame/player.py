@@ -52,8 +52,8 @@ class DicePlayer(Player):
     def return_roll(self):
         return self.hand.return_roll()
     
-    def roll(self):
-        self.hand.roll()
+    def roll(self, num=6):
+        self.hand.roll(num)
         
 kyle = DicePlayer('kyle')
 kyle.add_points(800)

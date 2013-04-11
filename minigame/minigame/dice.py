@@ -38,6 +38,9 @@ class Roll(object):
         self.dieNum = numberOfDice
         self.roll()
         
+    def __len__(self):
+        return len(self.dice)
+
     def roll(self, num=None):
         if num is None:
             rollNum = self.dieNum

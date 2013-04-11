@@ -6,13 +6,14 @@ Created on Apr 9, 2013
 import unittest, sys
 from dice import Die
 from dice import Roll
+from maintest import testCount
 
 # set debug with --debug from the command line
 DEBUG = True
 if len(sys.argv) > 1:
     if sys.argv[1] == '--debug':
         DEBUG = True
-testCount = 0
+
 
 class DieTest(unittest.TestCase):
     
