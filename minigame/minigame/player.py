@@ -34,6 +34,7 @@ class Player(object):
     def add_points(self, points):
         if points > 0:
             self.score += points
+            return 0
         else:
             raise ValueError
         
@@ -46,6 +47,7 @@ class DicePlayer(Player):
         
     def print_roll(self):
         self.hand.print_roll()
+        print
     
     def return_roll(self):
         return self.hand.return_roll()

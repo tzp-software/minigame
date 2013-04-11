@@ -92,7 +92,9 @@ class DieCounter(object):
             if count[i] >= 3:
                 print "{0} {1}'s".format(count[i],i)
                 save.append(i)
+        '''if a number had 3 or more'''
         if len(save) > 0:
+            '''return it'''
             return self._faceMap.index(str(save[0]))
         else:
             return None
