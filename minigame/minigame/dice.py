@@ -4,6 +4,7 @@
     __author__ = 'kyle roux'
 '''
 import random
+from locker import FileLocker as DieLocker
 
 class Die(object):
     ''' A Die is a six sided die unless you give it a number.
@@ -129,5 +130,10 @@ def test():
     print c.count_roll(y.return_roll())
     print c.check_three_or_more(y.return_roll())
     print c._faceMap
+    lock = DieLocker()
+    lock.lock_item(y.dice[1])
+    lock.lock_item(y.dice[1])
+    print lock
+
 if __name__ == '__main__':
     test()

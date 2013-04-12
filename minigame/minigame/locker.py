@@ -23,13 +23,13 @@ class FileLocker(object):
     def __len__(self):
         return len(self.lock)
 
-    def lock(self, item):
+    def lock_item(self, item):
         if item not in self.lock:
             self.lock.append(item)
         else:
             print '{0} is already locked'.format(item)
 
-    def unlock(self, item):
+    def unlock_item(self, item):
         if item in self.lock:
             self.lock.remove(item)
         else:
