@@ -32,16 +32,24 @@ class Die(object):
         return self.value
 
 class Roll(object):
+    ''' Represents a roll of n number of dice'''
     def __init__(self, numberOfDice=6):
+        ''' you can create a Roll with a number
+        ie: Roll(4) to roll 4 dice, or it will
+        just roll 6 dice by default.'''
         if numberOfDice <= 0:
             raise ValueError
         self.dieNum = numberOfDice
         self.roll()
         
     def __len__(self):
+        ''' return how many dice were rolled '''
         return len(self.dice)
 
     def roll(self, num=None):
+        ''' you can roll n number of dice,
+        Roll.roll(n) or just Roll.roll() for
+        the original number of dice rolled.'''
         if num is None:
             rollNum = self.dieNum
         else:
@@ -52,12 +60,14 @@ class Roll(object):
         self._reset()
         
     def _reset(self):
+        ''' actually roll each die in roll '''
         if self.dice:
             for i in self.dice:
                 i.roll()
             
     
     def print_roll(self):
+        ''' pretty print all dies in roll '''
         string = ''
         for i in self.dice:
             print str(i) + string,
@@ -71,16 +81,17 @@ class Roll(object):
 
 
 class DieCounter(object):
-    
-    
+    ''' use to pass around die counts(for scoring) '''
     def __init__(self):
         pass
     
     def reset_count(self):
+        ''' needed internally'''
         self._faces = {'One' : 0, 'Two' : 0, 'Three' : 0, 'Four' : 0, 'Five' : 0, 'Six' : 0}.copy()
         self._faceMap = [None, 'One', 'Two', 'Three', 'Four', 'Five' ,'Six'][:] 
     
     def count_roll(self, roll):
+        ''' counting algorithm'''
         self.reset_count()
         for die in roll:
             face = self._faceMap[die]
@@ -89,6 +100,7 @@ class DieCounter(object):
         return count
     
     def check_three_or_more(self, roll):
+        ''' scoring (maybe move)'''
         count = self.count_roll(roll)
         save = [][:]
         for i in count:
