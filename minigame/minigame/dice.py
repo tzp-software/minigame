@@ -38,10 +38,12 @@ class Roll(object):
         ''' you can create a Roll with a number
         ie: Roll(4) to roll 4 dice, or it will
         just roll 6 dice by default.'''
+        self.firstRoundRoll = True # so we know its the first roll
         if numberOfDice <= 0:
             raise ValueError
         self.dieNum = numberOfDice
-        self.roll()
+        self.roll(self.dieNum)
+        self.locker = DieLocker()
         
     def __len__(self):
         ''' return how many dice were rolled '''
@@ -67,6 +69,19 @@ class Roll(object):
                 i.roll()
             
     
+    def lock_die(self, die):
+        ''' lock the die to hold for player'''
+        if die in self.dice:
+            self.locker.lock_item(die)
+        return self.locker.lock.index(die)
+
+    def unlock_die(self, die):
+        ''' unlock die to remove hold a reroll '''
+        if die in self.locker.lock:
+            self.locker.unlock_item(die)
+        return 0
+
+
     def print_roll(self):
         ''' pretty print all dies in roll '''
         string = ''
@@ -130,10 +145,9 @@ def test():
     print c.count_roll(y.return_roll())
     print c.check_three_or_more(y.return_roll())
     print c._faceMap
-    lock = DieLocker()
-    lock.lock_item(y.dice[1])
-    lock.lock_item(y.dice[1])
-    print lock
+    print y.lock_die(y.dice[1])
+    y.unlock_die(y.dice[1])
+    print y.locker.lock
 
 if __name__ == '__main__':
     test()
