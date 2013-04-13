@@ -55,14 +55,19 @@ class DicePlayer(Player):
     def roll(self, num=6):
         self.hand.roll(num)
         
-kyle = DicePlayer('kyle')
-kyle.add_points(800)
-#tkyle.print_stats()
-jill = Player('jill')
-jill.add_points(100)
-Player.print_scores()
-kyle.print_roll()
+def test():
+    kyle = DicePlayer('kyle')
+    kyle.add_points(800)
+    #tkyle.print_stats()
+    jill = Player('jill')
+    jill.add_points(100)
+    Player.print_scores()
+    kyle.print_roll()
 
-x = kyle.return_roll()
-print
-print x
+    x = kyle.return_roll()
+    print
+    print x
+
+if __name__ == "__main__":
+    test()
+
