@@ -35,4 +35,12 @@ class FileLocker(object):
         else:
             print '{0} is not currently locked'.format(item)
 
+    def lock_number(self, tgt=None):
+        if tgt is None:
+            return len(self)
+        else:
+            if tgt in self.lock:
+                return self.lock.index(tgt) 
+        raise ValueError
+
     
