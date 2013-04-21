@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: minigame
+Version: 0.0.1dev
+Summary: Python game library for embedded devices
+Home-page: tzpsoftware.com
+Author: Kyle Roux
+Author-email: jstacoder@gmail.com
+License: bsd
+Description: python gaming library built for small, lom memory, embedded devices
+Keywords: python game dice cards ios android players tools utils
+Platform: UNKNOWN
